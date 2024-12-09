@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
-  final User? user;
-
-  HomePage({Key? key, this.user}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +20,13 @@ class HomePage extends StatelessWidget {
       greeting = "Selamat Malam";
     }
 
-    // Menampilkan email pengguna yang sedang login
-    final String email = user?.email ?? "Email Tidak Ditemukan";
-
     return Scaffold(
       appBar: AppBar(
         title: Row(
           children: [
             Icon(Icons.home, size: 28),
             SizedBox(width: 10),
-            Text('$greeting, $email'), // Menampilkan email di navbar
+            Text('$greeting'), // Menghapus email dari navbar
           ],
         ),
         actions: [
@@ -46,7 +41,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'Halo $email, Selamat Datang di Aplikasi Digital Bank!',
+          'Selamat Datang di Aplikasi Digital Bank!',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
